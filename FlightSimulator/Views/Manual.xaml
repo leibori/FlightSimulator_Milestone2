@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="FlightSimulator.Views.Manual"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulator.Views"
+             xmlns:localView="clr-namespace:FlightSimulator.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450">
+
+    <UserControl.Resources>
+        <Style x:Key="verticalText">
+            <Setter Property="TextBlock.LayoutTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="90" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid TextBlock.FontSize="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="4" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Stretch">
+            <TextBlock Text="←aileron→" VerticalAlignment="Center" Margin="125,0,0,0" />
+            <TextBlock Text="{Binding ElementName=joystick, Path=Aileron, StringFormat=0.0#}" VerticalAlignment="Center"  Margin="110,0,0,0" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2">
+            <TextBlock Text="{Binding ElementName=joystick, Path=Elevator, StringFormat=0.0#}" Width="37" Margin="4" />
+            <TextBlock Text="←elevator→" HorizontalAlignment="Center" Style="{StaticResource verticalText}" Margin="0,105,0,4" />
+        </StackPanel>
+        
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <localView:Joystick x:Name="joystick" Aileron="{Binding Aileron, Mode=OneWayToSource}" Elevator="{Binding Elevator, Mode=OneWayToSource}" />
+        </Viewbox>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Row="1">
+            <TextBlock Text="←throttle→" VerticalAlignment="Center" Style="{StaticResource verticalText}" />
+            <Slider x:Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1" />
+            <TextBlock Text="{Binding ElementName=throttleSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Center" Width="37" Margin="4" />
+        </StackPanel>
+
+        <StackPanel Margin="4" Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="{Binding ElementName=rudderSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Right" />
+            <TextBlock Text="←rudder→" HorizontalAlignment="Center" />
+            <Slider x:Name="rudderSlider" Orientation="Horizontal" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1"  />
+        </StackPanel>
+    </Grid>
+</UserControl>
