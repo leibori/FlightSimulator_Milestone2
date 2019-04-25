@@ -11,6 +11,8 @@ namespace FlightSimulator.ViewModels
 {
     class AutoPilotVM : INotifyPropertyChanged
     {
+        private ByAuto model = new ByAuto();
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propName)
         {
@@ -68,7 +70,7 @@ namespace FlightSimulator.ViewModels
         public void SendCommands()
         {
             if (!ConnectAndSettingsVM.IsConnected) { return; }
-            //Use a thread and send the "text" variable to the model to send to the simulator
+            model.SendComMod(text);
             ClearTextBox();
         }
     }

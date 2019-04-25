@@ -1,4 +1,5 @@
-﻿using FlightSimulator.ViewModels;
+﻿using FlightSimulator.Model;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace FlightSimulator.ViewModels
 {
     class ManualVM
     {
+        private ByManual model = new ByManual();
+
         private double aileron = 0;
         public double Aileron
         {
@@ -17,7 +20,7 @@ namespace FlightSimulator.ViewModels
             {
                 aileron = value;
                 if (!ConnectAndSettingsVM.IsConnected) { return; }
-                //send command to flight simulator
+                model.SendComMod("set /controls/engines/current-engine/throttle " + Convert.ToString(aileron));
             }
         }
 
@@ -29,7 +32,7 @@ namespace FlightSimulator.ViewModels
             {
                 elevator = value;
                 if (!ConnectAndSettingsVM.IsConnected) { return; }
-                //send command to flight simulator
+                model.SendComMod("set /controls/engines/current-engine/elevator " + Convert.ToString(elevator));
             }
         }
 
@@ -41,7 +44,7 @@ namespace FlightSimulator.ViewModels
             {
                 throttle = value;
                 if (!ConnectAndSettingsVM.IsConnected) { return; }
-                //send command to flight simulator
+                model.SendComMod("set /controls/engines/current-engine/throttle " + Convert.ToString(throttle));
             }
         }
 
@@ -53,7 +56,7 @@ namespace FlightSimulator.ViewModels
             {
                 rudder = value;
                 if (!ConnectAndSettingsVM.IsConnected) { return; }
-                //send command to flight simulator
+                model.SendComMod("set /controls/engines/current-engine/rudder " + Convert.ToString(rudder));
             }
         }
     }
