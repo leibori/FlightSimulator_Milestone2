@@ -12,7 +12,7 @@ namespace FlightSimulator.Model.Connection
     class Info
     {
         private TcpClient client;
-        private BinaryReader reader;
+        private BinaryReader readIt;
         private TcpListener listener;
         public bool isStop = false;
         public bool isConnected = false;
@@ -22,16 +22,11 @@ namespace FlightSimulator.Model.Connection
             if (isConnected == false)
             {
                 client = listener.AcceptTcpClient();
-                reader = new BinaryReader(client.GetStream());
+                readIt = new BinaryReader(client.GetStream());
                 isConnected = true;
             }
-
-            char c;
-            string s = "";
-            while ((c = reader.ReadChar()) != '\n')
-            {
-                s += c;
-            }
+            string s ="";
+            s = ReadChares(readIt);
             string[] val = s.Split(',');
             string[] retVal = { val[0], val[1] };
             return retVal;
@@ -56,6 +51,16 @@ namespace FlightSimulator.Model.Connection
         {
             isStop = true;
             listener.Stop();
+        }
+        public string ReadChares (BinaryReader b)
+        {
+            char c;
+            string s = "";
+            while ((c = readIt.ReadChar()) != '\n')
+            {
+                s += c;
+            }
+            return s;
         }
 
     }
