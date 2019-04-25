@@ -11,7 +11,6 @@ namespace FlightSimulator.Model.Connection
 {
     class Info
     {
-
         private TcpClient client;
         private BinaryReader reader;
         private TcpListener listener;

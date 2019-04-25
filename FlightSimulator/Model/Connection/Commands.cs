@@ -28,6 +28,8 @@ namespace FlightSimulator.Model.Connection
                 return _Instance;
             }
         }
+
+        public bool Connected { get; internal set; }
         #endregion
         public void ComConnect(string ip, int port)
         {

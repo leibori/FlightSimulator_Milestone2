@@ -25,7 +25,9 @@ namespace FlightSimulator
             Info a = new Info();
             a.Connect("127.0.0.1", 5400);
             a.Read();
-            InitializeComponent();
+           /* Commands.Instance.ComConnect("127.0.0.1", 5400);
+            Commands.Instance.ComSend("127.0.0.1");
+            InitializeComponent();*/
         }
     }
 }
