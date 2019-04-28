@@ -20,6 +20,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private string color;
+        //Color property associated with the auto pilot textbox background color.
         public string Color
         {
             get
@@ -31,6 +32,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private string text = "";
+        //Text property associated with the auto pilot textbox content.
         public string Text
         {
             get { return text; }
@@ -43,6 +45,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private ICommand clearButton;
+        //Activated after pressing the "clear" button.
         public ICommand ClearButton
         {
             get
@@ -50,7 +53,7 @@ namespace FlightSimulator.ViewModels
                 return clearButton ?? (clearButton = new CommandHandler(() => ClearTextBox()));
             }
         }
-
+        //As a result of pressing the "clear" button the auto pilot textbox content is cleared and notify both properties of the change.
         public void ClearTextBox()
         {
             text = "";
@@ -59,6 +62,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private ICommand okButton;
+        //Activated after pressing the "ok" button.
         public ICommand OkButton
         {
             get
@@ -66,6 +70,7 @@ namespace FlightSimulator.ViewModels
                 return okButton ?? (okButton = new CommandHandler(() => SendCommands()));
             }
         }
+        //As a result of pressing the "ok" button the auto pilot textbox content is sent through the model to the simulator.
         public void SendCommands()
         {
             if (!FlightBoardViewModel.IsConnected) { return; }

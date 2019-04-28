@@ -10,8 +10,10 @@ namespace FlightSimulator.ViewModels
 {
     class ManualVM
     {
+        //Making the reference to the model file associated with the manual control.
         private ByManual model = new ByManual();
 
+        //Aileron property uses the model to update the aileron value is simulator.
         public double Aileron
         {
             set
@@ -21,6 +23,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
+        //Elevator property uses the model to update the elevator value is simulator.
         public double Elevator
         {
             set
@@ -30,6 +33,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
+        //Throttle property uses the model to update the throttle value is simulator.
         public double Throttle
         {
             set
@@ -39,6 +43,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
+        //Rudder property uses the model to update the rudder value is simulator.
         public double Rudder
         {
             set

@@ -34,8 +34,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private static double lon;
-        //in the model when you get a data from the simulator update the Lon (Of the plane)
-        //by write in the model "Lon=..."
+        //In the model when you get a data from the simulator update the Lon (Of the plane)
         public double Lon
         {
             get { return lon; }
@@ -47,8 +46,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private static double lat;
-        //in the model when you get a data from the simulator update the Lat (Of the plane)
-        //by write in the model "Lat=..."
+        //In the model when you get a data from the simulator update the Lat (Of the plane)
         public double Lat
         {
             get { return lat; }
@@ -60,6 +58,7 @@ namespace FlightSimulator.ViewModels
         }
 
         private ICommand settingsCommand;
+        //Activated after pressing the "settings" button.
         public ICommand SettingsCommand
         {
             get
@@ -67,11 +66,13 @@ namespace FlightSimulator.ViewModels
                 return settingsCommand ?? (settingsCommand = new CommandHandler(() => SettingsClick()));
             }
         }
+        //As a result of pressing the "settings" button the settings window appears.
         private void SettingsClick()
         {
             settings.ShowDialog();
         }
 
+        //Property to know whether or not there's connection.
         static private bool isConnected = false;
         static public bool IsConnected
         {
@@ -79,27 +80,23 @@ namespace FlightSimulator.ViewModels
             set { isConnected = value; }
         }
 
+        //Activated after pressing the "connect" button.
         private ICommand connectCommand;
         public ICommand ConnectCommand
         {
             get { return connectCommand ?? (connectCommand = new CommandHandler(() => ConnectClick())); }
         }
+        //As a result of pressing the "connect" button the model attempts to connect to the flight simulator.
         private void ConnectClick()
         {
-            if (isConnected)
-            {
-                return;
-                model.IsStopUInfo();
-                Commands.Instance.ComClose();
-                Commands.Instance.ComClear();
-                System.Threading.Thread.Sleep(1000);
-            }
+            if (isConnected) { return; }
             IsConnected = true;
             connectionThread = new Thread(() => Commands.Instance.ComConnect(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightCommandPort));
             connectionThread.Start();
             model.ConnectionIpPort(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightInfoPort);
         }
 
+        //Listens to the model for changes in longitude and latitude.
         public void dataRec(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals("Lat"))

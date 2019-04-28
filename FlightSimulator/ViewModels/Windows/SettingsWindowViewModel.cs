@@ -14,6 +14,7 @@ namespace FlightSimulator.ViewModels.Windows
     {
         private ISettingsModel model = new ApplicationSettingsModel();
 
+        //Flight server ip property.
         public string FlightServerIP
         {
             get { return model.FlightServerIP; }
@@ -24,6 +25,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
+        //Flight command port property.
         public int FlightCommandPort
         {
             get { return model.FlightCommandPort; }
@@ -34,6 +36,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
+        //Flight info port property.
         public int FlightInfoPort
         {
             get { return model.FlightInfoPort; }
@@ -44,13 +47,13 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-     
-
+        //Save the values written in the settings window textboxes to their respective properties.
         public void SaveSettings()
         {
             model.SaveSettings();
         }
 
+        //Reload the properties values.
         public void ReloadSettings()
         {
             model.ReloadSettings();
