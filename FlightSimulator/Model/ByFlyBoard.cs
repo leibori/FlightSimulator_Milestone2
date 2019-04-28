@@ -66,6 +66,9 @@ namespace FlightSimulator.Model
             TaskRead();
         }
 
-        public void IsStopUInfo() { info.isStop = true; }
+        public void StopInfo() {
+            info.Listener_Stop();
+            info.Disconnect();
+        }
     }
 }
