@@ -31,13 +31,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="4" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Stretch">
-            <TextBlock Text="←aileron→" VerticalAlignment="Center" Margin="125,0,0,0" />
-            <TextBlock Text="{Binding ElementName=joystick, Path=Aileron, StringFormat=0.0#}" VerticalAlignment="Center"  Margin="110,0,0,0" />
+            <TextBlock Text="←elevator→" VerticalAlignment="Center" Margin="125,0,0,0" />
+            <TextBlock Text="{Binding ElementName=joystick, Path=Elevator, StringFormat=0.0#}" VerticalAlignment="Center" Margin="90,0,0,0" />
         </StackPanel>
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2">
-            <TextBlock Text="{Binding ElementName=joystick, Path=Elevator, StringFormat=0.0#}" Width="37" Margin="4" />
-            <TextBlock Text="←elevator→" HorizontalAlignment="Center" Style="{StaticResource verticalText}" Margin="0,105,0,4" />
+            <TextBlock Text="{Binding ElementName=joystick, Path=Aileron, StringFormat=0.0#}" HorizontalAlignment="Center" Width="37"  Margin="0,0,0,0" />
+            <TextBlock Text="←aileron→" HorizontalAlignment="Center" Style="{StaticResource verticalText}" Margin="0,110,0,0" />
         </StackPanel>
         
         <Viewbox Grid.Row="1" Grid.Column="1">
@@ -46,14 +46,14 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Row="1">
             <TextBlock Text="←throttle→" VerticalAlignment="Center" Style="{StaticResource verticalText}" />
-            <Slider x:Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1" />
+            <Slider Value="{Binding Throttle,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="throttleSlider"  Orientation="Vertical" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1" />
             <TextBlock Text="{Binding ElementName=throttleSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Center" Width="37" Margin="4" />
         </StackPanel>
 
         <StackPanel Margin="4" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="{Binding ElementName=rudderSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Right" />
             <TextBlock Text="←rudder→" HorizontalAlignment="Center" />
-            <Slider x:Name="rudderSlider" Orientation="Horizontal" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1"  />
+            <Slider Value="{Binding Rudder, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="rudderSlider" Orientation="Horizontal" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1"  />
         </StackPanel>
     </Grid>
 </UserControl>

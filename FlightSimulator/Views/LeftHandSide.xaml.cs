@@ -23,7 +23,7 @@ namespace FlightSimulator.Views
         public LeftHandSide()
         {
             InitializeComponent();
-            DataContext = new ConnectAndSettingsVM();
+            DataContext = FlightBoardViewModel.Instance;
         }
     }
 }

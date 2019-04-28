@@ -12,15 +12,6 @@ namespace FlightSimulator.Model
     {
         public void SendComMod(string s)
         {
-            // there ia connection
-            if (Commands.Instance.Connected)
-            {
-                ThreadConnection(s);
-            }
-        }
-        public void ThreadConnection(string s)
-        {
-            //make new thread sending commands
             new Thread(delegate () {
                 Commands.Instance.ComSend(s);
             }).Start();

@@ -1,5 +1,4 @@
-﻿using FlightSimulator.Model.Connection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace FlightSimulator
 {
     /// <summary>
@@ -22,12 +22,7 @@ namespace FlightSimulator
     {
         public MainWindow()
         {
-            Info a = new Info();
-            a.Connect("127.0.0.1", 5400);
-            a.Read();
-           /* Commands.Instance.ComConnect("127.0.0.1", 5400);
-            Commands.Instance.ComSend("127.0.0.1");
-            InitializeComponent();*/
+            InitializeComponent();
         }
     }
 }

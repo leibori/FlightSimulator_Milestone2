@@ -12,12 +12,7 @@ namespace FlightSimulator.ViewModels.Windows
 {
     public class SettingsWindowViewModel : BaseNotify
     {
-        private ISettingsModel model;
-
-        public SettingsWindowViewModel(ISettingsModel model)
-        {
-            this.model = model;
-        }
+        private ISettingsModel model = new ApplicationSettingsModel();
 
         public string FlightServerIP
         {

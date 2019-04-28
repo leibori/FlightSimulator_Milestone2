@@ -54,17 +54,16 @@ namespace FlightSimulator.Model.Connection
             foreach (string s in commendsList)
             {
                 string indiCom = s + "\r\n";
-                byte[] sendMess = ASCIIEncoding.ASCII.GetBytes(indiCom);
-                writer.Write(sendMess, 0, sendMess.Length);
+                writer.Write(System.Text.Encoding.ASCII.GetBytes(indiCom));
                 System.Threading.Thread.Sleep(2000);
             }
-
-
         }
+
         public void ComClear()
         {
             _Instance = null;
         }
+
         public void ComClose()
         {
             client.Close();

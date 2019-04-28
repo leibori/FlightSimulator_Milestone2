@@ -10,14 +10,10 @@ namespace FlightSimulator.Model
 {
     class ByFlyBoard
     {
-        private Info info;
-        public event PropertyChangedEventHandler pc;
-        public ByFlyBoard(Info inf)
-        {
-            this.info = inf;
-        }
+        private Info info = new Info();
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private double lonValue;
-        private double latValue;
         public double Lon
         {
             get { return lonValue; }
@@ -25,12 +21,14 @@ namespace FlightSimulator.Model
             {
                 lonValue = value;
                 PropertyChangedEventArgs lonChanged = new PropertyChangedEventArgs("Lon");
-                if (pc != null)
-                {
-                    pc.Invoke(this, lonChanged);
-                }
+                //if (PropertyChanged != null)
+                //{
+                    PropertyChanged?.Invoke(this, lonChanged);
+                //}
             }
         }
+
+        private double latValue;
         public double Lat
         {
             get { return latValue; }
@@ -38,14 +36,16 @@ namespace FlightSimulator.Model
             {
                 latValue = value;
                 PropertyChangedEventArgs lanChanged = new PropertyChangedEventArgs("Lat");
-                if (pc != null)
-                {
-                    pc.Invoke(this, lanChanged);
-                }
+                //if (PropertyChanged != null)
+                //{
+                    PropertyChanged?.Invoke(this, lanChanged);
+                //}
             }
         }
       
         public bool IsConnected() { return info.isConnected; }
+			
+
         void TaskRead()
         {
   
@@ -60,11 +60,13 @@ namespace FlightSimulator.Model
                 }
             }).Start();
         }
+
         public void ConnectionIpPort(string ip, int port)
         {
             info.Connect(ip, port);
             TaskRead();
         }
+
         public void IsStopUInfo() { info.isStop = true; }
     }
 

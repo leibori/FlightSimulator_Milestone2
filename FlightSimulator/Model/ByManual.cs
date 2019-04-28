@@ -13,10 +13,7 @@ namespace FlightSimulator.Model
         public void SendComMod(string s)
         {
             // there ia connection
-            if (Commands.Instance.Connected)
-            {
-                ThreadConnection(s);
-            }
+            ThreadConnection(s);
         }
         public void ThreadConnection(string s)
         {

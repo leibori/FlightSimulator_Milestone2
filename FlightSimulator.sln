@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSimulator", "FlightSimulator\FlightSimulator.csproj", "{F770CF43-0E3D-4E5B-B8EB-F260C62EC543}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSimulator", "FlightSimulator\FlightSimulator.csproj", "{F303F136-95B6-43A9-8182-AF26C1431CF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79DC3A80-139E-4A2B-90EC-052A8B6A30B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F770CF43-0E3D-4E5B-B8EB-F260C62EC543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F770CF43-0E3D-4E5B-B8EB-F260C62EC543}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F770CF43-0E3D-4E5B-B8EB-F260C62EC543}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F770CF43-0E3D-4E5B-B8EB-F260C62EC543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F303F136-95B6-43A9-8182-AF26C1431CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F303F136-95B6-43A9-8182-AF26C1431CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F303F136-95B6-43A9-8182-AF26C1431CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F303F136-95B6-43A9-8182-AF26C1431CF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {77FF0319-AB7C-4CBD-9AB7-EB2AEFBEDDD0}
+		SolutionGuid = {87A29701-3FF8-4A0E-967D-92CBEB272410}
 	EndGlobalSection
 EndGlobal

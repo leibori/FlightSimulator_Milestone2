@@ -66,10 +66,9 @@ namespace FlightSimulator.ViewModels
                 return okButton ?? (okButton = new CommandHandler(() => SendCommands()));
             }
         }
-
         public void SendCommands()
         {
-            if (!ConnectAndSettingsVM.IsConnected) { return; }
+            if (!FlightBoardViewModel.IsConnected) { return; }
             model.SendComMod(text);
             ClearTextBox();
         }

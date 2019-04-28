@@ -16,7 +16,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <TabControl Grid.Column="1">
+    <TabControl>
         <TabItem Header="Manual">
             <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
                 <localView:Manual />
@@ -24,9 +24,7 @@
             
         </TabItem>
         <TabItem Header="Auto Pilot">
-            <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
-                <localView:AutoPilot />
-            </Viewbox>
+            <localView:AutoPilot></localView:AutoPilot>
         </TabItem>
     </TabControl>
 </UserControl>
