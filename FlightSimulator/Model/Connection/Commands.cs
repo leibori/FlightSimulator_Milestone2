@@ -54,6 +54,7 @@ namespace FlightSimulator.Model.Connection
         //send commands 
         public void ComSend(string message)
         {
+            if (!isConnected) { return; }
             if (string.IsNullOrEmpty(message)) return;
             string[] commendsList = message.Split('\n');
             //go over commends
