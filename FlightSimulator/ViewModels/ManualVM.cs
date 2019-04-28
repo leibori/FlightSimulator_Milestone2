@@ -1,4 +1,4 @@
-﻿using FlightSimulator.Model;
+using FlightSimulator.Model;
 using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -48,7 +48,6 @@ namespace FlightSimulator.ViewModels
         {
             set
             {
-                if (!ConnectAndSettingsVM.IsConnected) { return; }
                 model.SendComMod("set /controls/flight/rudder " + Convert.ToString(value));
             }
         }
