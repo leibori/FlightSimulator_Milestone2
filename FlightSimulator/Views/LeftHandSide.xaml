@@ -12,10 +12,14 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="7*" />
         </Grid.RowDefinitions>
+      
+      <!-- Showing both "connect" and "settings" buttons -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Command="{Binding ConnectCommand}" VerticalAlignment="Center" Content="Connect" Margin="4" />
             <Button Command="{Binding SettingsCommand}" VerticalAlignment="Center" Content="Settings" Margin="4" />
         </StackPanel>
+      
+      <!-- Showing the "FlightBoard.xaml" file -->
         <localView:FlightBoard Grid.Row="1" Margin="10" />
     </Grid>
 </UserControl>

@@ -30,26 +30,31 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="4" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Stretch">
+      <!-- Showing the "←elevator→" title and elevator's value -->
+      <StackPanel Margin="4" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Stretch">
             <TextBlock Text="←elevator→" VerticalAlignment="Center" Margin="125,0,0,0" />
             <TextBlock Text="{Binding ElementName=joystick, Path=Elevator, StringFormat=0.0#}" VerticalAlignment="Center" Margin="90,0,0,0" />
         </StackPanel>
 
+      <!-- Showing the "←aileron→" title and aileron's value -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2">
             <TextBlock Text="{Binding ElementName=joystick, Path=Aileron, StringFormat=0.0#}" HorizontalAlignment="Center" Width="37"  Margin="0,0,0,0" />
             <TextBlock Text="←aileron→" HorizontalAlignment="Center" Style="{StaticResource verticalText}" Margin="0,110,0,0" />
         </StackPanel>
         
+      <!-- Showing the "Joystick.xaml" file -->
         <Viewbox Grid.Row="1" Grid.Column="1">
             <localView:Joystick x:Name="joystick" Aileron="{Binding Aileron, Mode=OneWayToSource}" Elevator="{Binding Elevator, Mode=OneWayToSource}" />
         </Viewbox>
 
+      <!-- showing the "←throttle→" title, the throttle's slider and the throttle's value -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Row="1">
             <TextBlock Text="←throttle→" VerticalAlignment="Center" Style="{StaticResource verticalText}" />
             <Slider Value="{Binding Throttle,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="throttleSlider"  Orientation="Vertical" Minimum="-1" Maximum="1" TickPlacement="BottomRight" TickFrequency="0.1" />
             <TextBlock Text="{Binding ElementName=throttleSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Center" Width="37" Margin="4" />
         </StackPanel>
 
+      <!-- showing the "←rudder→" title, the rudder's slider and the rudder's value -->
         <StackPanel Margin="4" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="{Binding ElementName=rudderSlider, Path=Value, StringFormat=0.0#}" HorizontalAlignment="Right" />
             <TextBlock Text="←rudder→" HorizontalAlignment="Center" />

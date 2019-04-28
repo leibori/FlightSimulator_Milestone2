@@ -18,13 +18,15 @@
     </UserControl.Resources>
     <TabControl>
         <TabItem Header="Manual">
+          <!-- Showing the "Manual.xaml" file -->
             <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
                 <localView:Manual />
             </Viewbox>
-            
         </TabItem>
-        <TabItem Header="Auto Pilot">
-            <localView:AutoPilot></localView:AutoPilot>
+
+      <TabItem Header="Auto Pilot">
+        <!-- Showing the "AutoPilot.xaml" file -->
+        <localView:AutoPilot></localView:AutoPilot>
         </TabItem>
     </TabControl>
 </UserControl>

@@ -29,9 +29,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
+      <!-- Show the "Lon" axis title -->
         <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center">Lon</TextBlock>
+      
+      <!-- Show the flight board graph -->
         <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter">
         </d3:ChartPlotter>
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center">Lat</TextBlock>
+
+      <!-- Show the "Lat" axis title -->
+      <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center">Lat</TextBlock>
     </Grid>
 </UserControl>
