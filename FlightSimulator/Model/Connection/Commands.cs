@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,11 +12,11 @@ namespace FlightSimulator.Model.Connection
     class Commands
     {
         private TcpClient client;
-        private BinaryWriter writer; // writer
-        //private NetworkStream streamC;
+        private BinaryWriter writer; 
         public bool isConnected = false;
         #region Singleton
         private static Commands _Instance = null;
+        //singelton Command
         public static Commands Instance
         {
             get
@@ -31,26 +31,32 @@ namespace FlightSimulator.Model.Connection
 
         public bool Connected { get; internal set; }
         #endregion
+        //connect to server
         public void ComConnect(string ip, int port)
         {
             client = new TcpClient();
             IPEndPoint ipEndPo = new IPEndPoint(IPAddress.Parse(ip), port);
+            //keep logging
             while (!client.Connected)
             {
                 try { client.Connect(ipEndPo); }
                 catch (Exception exp)
                 {
+                    //exception
                     Console.WriteLine("pay attention to: {0}", exp.ToString());
                 }
             }
             writer = new BinaryWriter(client.GetStream());
             Console.WriteLine("Connected");
+            //update connect
             isConnected = true;
         }
+        //send commands 
         public void ComSend(string message)
         {
             if (string.IsNullOrEmpty(message)) return;
             string[] commendsList = message.Split('\n');
+            //go over commends
             foreach (string s in commendsList)
             {
                 string indiCom = s + "\r\n";
@@ -58,12 +64,12 @@ namespace FlightSimulator.Model.Connection
                 System.Threading.Thread.Sleep(2000);
             }
         }
-
+        //clear instance
         public void ComClear()
         {
             _Instance = null;
         }
-
+        //close 
         public void ComClose()
         {
             client.Close();
@@ -72,4 +78,3 @@ namespace FlightSimulator.Model.Connection
 
     }
 }
-
