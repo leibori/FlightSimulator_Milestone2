@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,8 +36,10 @@ namespace FlightSimulator.Model.Connection
             string[] retVal = { val[0], val[1] };
             return retVal;
         }
+        //connect by port and ip
         public void Connect(string ip, int port)
         {
+            //if not null disconnect
             if (listener != null)
             {
                 Disconnect();
@@ -46,12 +48,13 @@ namespace FlightSimulator.Model.Connection
             listener.Start();
             Console.WriteLine("connected");
         }
-
+        //end connection
         public void Disconnect()
         {
             isConnected = false;
             client.Close();
         }
+        //stop listen
         public void Listener_Stop()
         {
             isStop = true;
