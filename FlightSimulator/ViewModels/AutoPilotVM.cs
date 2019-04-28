@@ -1,4 +1,4 @@
-﻿using FlightSimulator.Model;
+using FlightSimulator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,7 +73,7 @@ namespace FlightSimulator.ViewModels
         //As a result of pressing the "ok" button the auto pilot textbox content is sent through the model to the simulator.
         public void SendCommands()
         {
-            if (!FlightBoardViewModel.IsConnected) { return; }
+           // if (!FlightBoardViewModel.IsConnected) { return; }
             model.SendComMod(text);
             ClearTextBox();
         }
