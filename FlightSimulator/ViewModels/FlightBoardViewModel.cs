@@ -1,4 +1,4 @@
-﻿using FlightSimulator.Model;
+using FlightSimulator.Model;
 using FlightSimulator.Model.Connection;
 using FlightSimulator.Views.Windows;
 using System.ComponentModel;
@@ -82,17 +82,17 @@ namespace FlightSimulator.ViewModels
 
          //Activated after pressing the "disconnect" button.
         private ICommand disconnectCommand;
-        public ICommand DisonnectCommand
+        public ICommand DisconnectCommand
         {
-            get { return connectCommand ?? (connectCommand = new CommandHandler(() => DisconnectClick())); }
+            get { return disconnectCommand ?? (disconnectCommand = new CommandHandler(() => DisconnectClick())); }
         }
         //As a result of pressing the "disconnect" button the model disconnects from the flight simulator.
-        private void DicsonnectClick()
+        private void DisconnectClick()
         {
             if (!isConnected) { return; }
             model.StopInfo();
-            CommandBinding.Instance.ComClose();
-            CommandBinding.Instance.ComClear();
+            Commands.Instance.ComClose();
+            Commands.Instance.ComClear();
         }
 
         //Activated after pressing the "connect" button.
